@@ -29,9 +29,21 @@ app.post('/v1/explorers', (req, res) =>{
     // Agregar logica para persistir la información agregada
 
     console.log(req.body)  // parámetros del request
-    res.status(201).json({ message: `Se creo nuevo explorer exitosamente`})   // status de que se creo nueva identidad
+    res.status(201).json({ message: `Se creo nuevo explorer exitosamente`})   // status de que se creo nueva identidad  201
 })
 
+app.put('/v1/explorers/:id', (req, res) =>{
+    console.log(`PUT ID Explorers V1 API ${new Date()}`)
+
+    console.log(req.body)  // parámetros del request
+    console.log(req.params.id)
+    res.status(200).json({ message: `Se actualizo exitosamente`})
+})
+
+app.delete('/v1/explorers/:id', (req, res) =>{
+    console.log(`DLETE ID Explorers V1 API ${new Date()}`)
+    res.status(200).json({ message: `Se eliminó exitosamente`})
+})
 
 app.listen(port, () => {
     console.log("Server Listo!")
